@@ -1,4 +1,4 @@
-//同时执行函数，加载完之后执行函数
+//同时执行函数，加载完之后执行函数q
 function addloadEvent(func){
   var oldonload=window.onload;
   if(typeof window.onload !="function"){
