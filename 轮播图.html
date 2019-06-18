@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;}
+     #content{height: 420px;position: relative;top:50px;overflow: hidden;}
+     #content #ul-imgs{width:700%;height: 420px;list-style: none;}
+     #content #ul-imgs li{float:left;height: 420px;}
+     #content>div{width:50px;height: 60px;background: red;position: absolute;top:60px;}
+     .arrow_left{left:0px;}
+     .arrow_right{right:0px;}
+     .round{position: absolute;bottom: 0;list-style:none;left:500px;}
+     .round>li{float:left;width:30px;height: 30px;background: white;border-radius: 50%;margin-right: 15px;border: 1px solid #555;}
+     .round .active{background: cornflowerblue;}
+     .transition{transition: all .5s;}
+    </style>
+</head>
+<body>
+      <div id="content">
+          <ul id="ul-imgs">
+              <li><a href="#"><img src="./bg1.jpg" alt=""></a></li>
+              <li><a href="#"><img src="./bg2.jpg" alt=""></a></li>
+              <li><a href="#"><img src="./bg3.jpg" alt=""></a></li>
+              <li><a href="#"><img src="./bg4.jpg" alt=""></a></li>
+              <li><a href="#"><img src="./bg5.jpg" alt=""></a></li>
+              <li><a href="#"><img src="./bg6.jpg" alt=""></a></li>
+              <li><a href="#"><img src="./bg1.jpg" alt=""></a></li>
+          </ul>
+          <div class="arrow_left" id="btn-left"></div>
+          <div class="arrow_right" id="btn-right"></div>
+          <ul class="round" id="ul-idxs">
+              <li class="active"></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+          </ul>
+      </div>
+     <script>
+       var i=0;   //现在正在显示第几张，从0开始
+       var LIWIDTH=100;  //每个li的固定宽度
+       var DURATION=500;//每次轮播的时间
+       var LICOUNT=6;//li的总个数
+       var ulImgs=document.getElementById("ul-imgs");
+       var ulIdxs=document.getElementById("ul-idxs");
+       var lis=ulIdxs.children;
+
+      var btn_left=document.getElementById('btn-left');
+      var btn_right=document.getElementById('btn-right');
+      var canClick=true; //开关按钮，防止用户重复点击
+
+ 
+
+
+
+
+
+
+
+
+      btn_right.onclick=function(){
+          //左移一个
+          move(1);
+      }
+      btn_left.onclick=function(){
+            move(-1);
+        }
+
+       //两个按钮共用的移动函数
+        function move(n){
+         if(canClick){
+             moveTo(i+n);
+             canClick=false;
+             //只有本地动画播放完，才能自动打开开关，点击按钮才有反应
+             setTimeout(function(){
+                 canClick=true;
+             },DURATION+100);
+         }
+        }
+         // 轮播核心函数
+     function moveTo(to){
+         if(to==undefined){
+             to=i+1;
+         }
+         if(i==0){
+             if(to>i){ //在第一张顺序向左移正常执行
+             ulImgs.className="transition";
+             }else{ //在第一张反向向右移再做改变瞬间将ul移到最后一张li(想看左边的图片)
+                 ulImgs.className="";
+                 ulImgs.style.marginLeft=-LIWIDTH*LICOUNT+"%";
+               //  console.log(ulImgs.style.marginLeft);
+                 setTimeout(function(){
+                    moveTo(LICOUNT-1);
+                 },100);
+                 return;
+             }
+         }
+         i=to;
+         ulImgs.style.marginLeft=-i*LIWIDTH+"%";
+
+         for(var li of lis){
+            li.className=""; 
+         }
+         if(i==LICOUNT){
+             i=0;
+             setTimeout(function(){
+            ulImgs.className="";
+            ulImgs.style.marginLeft=0
+             },DURATION);
+         }
+         lis[i].className="active";
+     }
+
+      var interval=3000;
+      var timer=setInterval(function(){
+          moveTo();
+      },3000);
+      var content=document.getElementById('content');
+      content.onmouseover=function(){
+        clearInterval(timer);
+      }
+      content.onmouseout=function(){
+        timer=setInterval(function(){
+              moveTo();
+          },3000);
+      }
+      
+            //手动轮播
+          //  var canClick=true;
+       ulIdxs.onclick=function(e){
+           if(canClick){
+               var li=e.target;
+               if(li.nodeName=="LI"&&li.className!=="active"){
+                   for(var i=0;i<lis.length;i++){
+                       if(lis[i]==li){
+                           break;
+                       }
+                   }
+               }
+               moveTo(i);
+               setTimeout(function(){
+                canClick=true;
+               },DURATION);
+           }
+       }
+     </script>
+</body>
+</html>
