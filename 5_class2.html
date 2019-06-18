@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.alert{
+			border:1px solid #a33;
+			color:#922;
+			background:#fee;
+			padding:10px;
+			position: fixed;
+			
+		}
+		.alert>.close{
+			float:right;
+			font-weight:bold;
+			opacity:.5;
+			cursor:pointer;
+		}
+		.alert>.close:hover{opacity:1}
+		.fade{ /*定义淡入淡出动画的初始状态,常驻元素*/
+			/* display: none;     淡入淡出不能用display:block;显示不出来过渡*/
+			width:0px;height: 100px;
+			
+			top:50%;
+			left:50%;
+			/* margin-top: -80px;  下沉效果 开始元素上外边距就高一点，点击添加.in 选择器就向下沉*/
+			margin-top: -50px;
+			margin-left: 0px;
+			opacity: 0;
+			overflow: hidden;
+			 transition: all 1s linear;    /*默认始时元素 */
+		}
+		.in{ /*定义淡入淡出动画的结束状态   结束元素  */ 
+			/* display: block; */    /*这里因为使用opacity: 1;，过渡没有这个属性*/
+			width:400px;
+			opacity: 1;
+			top:50%;           /* position:fixed 定位加上下面的4行代码是使元素居中*/
+			left:50%;
+			margin-top: -50px;
+			margin-left: -200px;
+		
+		}
+	</style>
+ </head>
+ <body>
+	<button id="btn">click me!</button>
+  <div class="alert fade">
+		<span class="close">×</span>
+		<p>您的浏览器版本太低!请下载最新版本的浏览器</p>
+	</div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+	  $('#btn').click(function(e){
+		e.stopPropagation();
+		  $('.alert').addClass('in');
+	  });
+  
+	  $('.close').click(function(){
+		
+		  $(this).parent().removeClass('in');
+	  });
+ 
+	  $(window).click(function(){
+		$('.alert').removeClass('in');
+	  });
+	  
+	</script>
+ </body>
+</html>
