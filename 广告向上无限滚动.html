@@ -1,0 +1,26 @@
+<div id=maq style=overflow:hidden;height:100px;width:150px;>  
+	<div id=mtext>  
+	1.文字也是可以连续滚动的<br>  
+	2.文字也是可以连续滚动的<br>  
+	3.文字也是可以连续滚动的<br>  
+	4.文字也是可以连续滚动的<br>  
+	5.文字也是可以连续滚动的<br>  
+	6.文字也是可以连续滚动的<br>  
+	</div>  
+	<div id=m0></div>  
+	</div> 
+	
+	<script>  
+	var speed=40  //调整滚动速度  
+	m0.innerHTML=mtext.innerHTML  
+	function Marquee(){  
+	if(m0.offsetTop-maq.scrollTop<=0)  
+	maq.scrollTop-=mtext.offsetHeight  
+	else{  
+	maq.scrollTop++  
+	}  
+	}  
+	var MyMar=setInterval(Marquee,speed)  
+	maq.οnmοuseοver=function() {clearInterval(MyMar)}  
+	maq.οnmοuseοut=function() {MyMar=setInterval(Marquee,speed)}  
+	</script>
