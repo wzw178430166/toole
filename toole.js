@@ -135,7 +135,7 @@ function fadeout(ele, opacity, speed) {
     return nexts;
    }
 
- //开关
+ //开关   按钮
  $('.cos').click(function(e){    
 	e.stopPropagation();
     flag=!flag; 
