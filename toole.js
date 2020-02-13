@@ -134,3 +134,18 @@ function fadeout(ele, opacity, speed) {
     }
     return nexts;
    }
+
+ //开关
+ $('.cos').click(function(e){    
+	e.stopPropagation();
+    flag=!flag; 
+     if(flag){
+      $(this).children('.wow').find('img').attr('src','images/ff.png');
+     $(this).children('.wow').find('span').text('已开启');
+          flag=true;
+        }else{
+          $(this).children('.wow').find('img').attr('src','images/ff1.png');
+     $(this).children('.wow').find('span').text('已关闭');
+           flag=false;
+          }
+	  });
