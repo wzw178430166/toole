@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+ <head>
+        <!-- <link rel="stylesheet" type="text/css" href="/statics/css/app/header_common.css">
+        <link rel="stylesheet" type="text/css" href="/statics/css/appstyle.css">
+        <script type="text/javascript" src="/statics/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="/statics/js/layer_mobile/layer.js"></script>
+        <script type="text/javascript" src="/statics/js/global.js"></script>
+        <script type="text/javascript" src="/statics/js/cookie.js"></script>
+        <script type="text/javascript" src="/statics/js/setFontSize.js"></script> -->
+        <script type="text/javascript" src="https://b.yjxun.cn/statics/currency/plug/jquery/jquery-3.3.1.min.js"></script>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+        body{background: #fff;margin: 0;padding: 0}	
+		.alert{
+			border:1px solid #a33;
+			color:#922;
+			background:#fee;
+			padding:10px;			
+		}
+		.alert>.close{
+			float:right;
+			font-weight:bold;
+			opacity:.5;
+			cursor:pointer;
+		}
+		.alert>.close:hover{opacity:1}
+		.centers>.closeall{
+			float:right;
+			font-weight:bold;
+			opacity:.5;
+			cursor:pointer;
+		}
+		.centers>.closeall:hover{opacity:1}
+		.fade{ 
+			width:0px;height: 100px;
+			top:50%;
+			left:50%;
+			opacity: 1;
+			overflow: hidden;
+			 transition: all 1s linear; 
+		}
+		.in{ 
+			width:400px;
+			opacity: 0;
+			top:50%;          
+			left:50%;
+/*			margin-top: -50px;*/
+			margin-left: -20%;
+		
+		}
+		.inall{ 
+			width:400px;
+			opacity: 0;
+			top:50%;          
+			left:50%;
+/*			margin-top: -50px;*/
+			margin-left: -40%;
+		
+		}
+		.mt_border{width: 100%;}
+        .alert{float: left;height: 100vh;border-right:1px solid #666;width: 20%;box-sizing: border-box;}
+        .centers{float: left;height: 100vh;border-right:1px solid #666;width: 20%;box-sizing: border-box;transition: all 1s linear; 
+border: 1px solid #a33;border-left: 0;
+    color: #922;
+    background: #fee;
+    padding: 10px;}
+        .nr_right{float: left;height: 100vh;border-right:1px solid #666;width:60%;box-sizing: border-box;transition: all 1s linear; 
+}
+		.nr_right_100{width: 100%!important;}
+		.nr_right_80{width: 80%;}
+	</style>
+ </head>
+ <body>
+<div class="mt_border">
+        <div class="alert fade">
+                <span class="close">×</span>
+                <p>疾病项目</p>
+        </div>
+        <div class="centers">
+			 <span class="closeall">×</span>
+            <p><button id="btn">关闭</button></p>
+            二级栏目</div>
+        <div class="nr_right">			           
+			<p><button id="btns">关闭</button></p>
+			内容</div>
+</div>
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+      var _switch = true;
+      var _switchall = true;
+	  $('#btn').click(function(e){
+		e.stopPropagation();
+        var that=$(this);
+		isStart(that);
+	  });
+	   $('#btns').click(function(e){
+		e.stopPropagation();
+        var that=$(this);
+		isStartall(that);
+	  });		
+	  $('.close').click(function(){
+        $('.alert').addClass('in');
+		 					$('.nr_right').addClass('nr_right_80');
+
+          _switch = false; 
+        $('#btn').text('展开');
+	  }); 
+	  $('.closeall').click(function(){
+        $('.centers').addClass('inall');
+          _switchall = false; 
+        $('#btns').text('展开');
+		 $('.nr_right').addClass('nr_right_80');	  
+	  }); 
+	//   $(window).click(function(){
+	// 	$('.alert').removeClass('in');
+	//   });
+        function isStart(text){
+        if (_switch == true) {
+         $('.alert').addClass('in');
+		text.text('展开');
+					$('.nr_right').addClass('nr_right_80');
+
+            _switch = false;
+        } else {
+        $('.alert').removeClass('in');
+			text.text('关闭');
+								$('.nr_right').removeClass('nr_right_80');
+            _switch = true;
+        };
+    };
+	
+	  function isStartall(text){
+        if (_switchall == true) {
+         $('.alert').addClass('in');
+		  $('.centers').addClass('inall');
+		  $('.nr_right').addClass('nr_right_100');
+			text.text('展开');
+            _switchall = false;
+        } else {
+        $('.alert').removeClass('in');
+		$('.centers').removeClass('inall');	
+	    $('.nr_right').removeClass('nr_right_100');	
+		  $('.nr_right').removeClass('nr_right_80');	
+			text.text('关闭');
+            _switchall = true;
+        };
+    };
+	</script>
+ </body>
+</html>
