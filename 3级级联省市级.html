@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+ <head>
+        <!-- <link rel="stylesheet" type="text/css" href="/statics/css/app/header_common.css">
+        <link rel="stylesheet" type="text/css" href="/statics/css/appstyle.css">
+        <script type="text/javascript" src="/statics/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="/statics/js/layer_mobile/layer.js"></script>
+        <script type="text/javascript" src="/statics/js/global.js"></script>
+        <script type="text/javascript" src="/statics/js/cookie.js"></script>
+        <script type="text/javascript" src="/statics/js/setFontSize.js"></script> -->
+        <script type="text/javascript" src="https://b.yjxun.cn/statics/currency/plug/jquery/jquery-3.3.1.min.js"></script>
+  <title> new document </title>
+  <meta charset="utf-8">[{'id':1,'name':'社区区域情况','srcs':'/?m=core&c=common&a=lists&tpl=list_memberStatistics&'}
+	<style>
+        body{background: #fff;margin: 0;padding: 0}	
+		.alert{
+			border:1px solid #a33;
+			color:#922;
+			background:#fee;
+			padding:10px;			
+		}
+		.alert>.close{
+			float:right;
+			font-weight:bold;
+			opacity:.5;
+			cursor:pointer;
+		}
+		.alert>.close:hover{opacity:1}
+		.centers>.closeall{
+			float:right;
+			font-weight:bold;
+			opacity:.5;
+			cursor:pointer;
+		}
+		.centers>.closeall:hover{opacity:1}
+		.fade{ 
+			width:0px;height: 100px;
+			top:50%;
+			left:50%;
+			opacity: 1;
+			overflow: hidden;
+			 transition: all 1s linear; 
+		}
+		.in{ 
+			width:400px;
+			opacity: 0;
+			top:50%;          
+			left:50%;
+/*			margin-top: -50px;*/
+			margin-left: -20%;
+		
+		}
+		.inall{ 
+			width:400px;
+			opacity: 0;
+			top:50%;          
+			left:50%;
+/*			margin-top: -50px;*/
+			margin-left: -40%;
+		
+		}
+		.mt_border{width: 100%;}
+        .alert{float: left;height: 100vh;border-right:1px solid #666;width: 20%;box-sizing: border-box;}
+        .centers{float: left;height: 100vh;border-right:1px solid #666;width: 20%;box-sizing: border-box;transition: all 1s linear; 
+border: 1px solid #a33;border-left: 0;
+    color: #922;
+    background: #fee;
+    padding: 10px;}
+        .nr_right{float: left;height: 100vh;border-right:1px solid #666;width:60%;box-sizing: border-box;transition: all 1s linear; 
+}
+		.nr_right_100{width: 100%!important;}
+		.nr_right_80{width: 80%;}
+	</style>
+ </head>
+ <body>
+		<div class="ct-area">
+		<div class="inner-region" id="J_region">
+			<select name="info[province]" class="region-item" id="J_province"></select>
+			<select name="info[city]" class="region-item" id="J_city"></select>
+			<select name="info[district]" class="region-item" id="J_district"></select>
+			<select name="info[street]" class="region-item" id="J_street"></select>
+			<select name="info[community]" class="region-item"
+					id="J_community"></select>
+		</div>
+		</div>
+
+	<script>
+			//data:datas: (31) [{…}, {…}, {…},  省
+          // data:datas: [{…}]__proto__: Object   status: 1  市
+	  	 //data:datas: (16) [{…}, {…},   区
+//		{status: 1, data: {…}}data: datas: (43) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]__proto__: Objectstatus: 1__proto__: Object       街道
+//		{status: 1, data: {…}}data: datas: (43) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]__proto__: Objectstatus: 1__proto__: Object     居委
+
+
+	 	getRegionNode(1, 0);
+		function getRegionNode(regionParent,regionLevel,currentCode){
+	var url = '/?m=core&c=data&a=getAreaNode&ajax=1';
+	if (0 < regionParent) url += '&parent='+regionParent;
+	$.ajax({
+		url: url,
+		type: "GET",
+		dataType: "JSON",
+		success: function(data){
+			console.log(data);
+			if (data.status == 1) {
+				var html = '<option value="0">璇烽€夋嫨</option>';
+				var nodes = data.data.datas;
+				for(var i in nodes){
+					var info = nodes[i];
+					var selected = currentCode&&currentCode==info.code?'selected':'';
+					html += '<option value="'+info.code+'" '+selected+'>'+info.name+'</option>';
+				}
+				$('.region-item').eq(regionLevel).html(html);
+				initRegionOperate();
+			}
+		}
+	});
+}
+function initRegionOperate(){
+	$('.region-item').unbind('change');
+	var _item = $('.region-item');
+	_item.each(function(i) {
+        $(_item[i]).on('change',function(){
+			var regionParent = $(this).val();
+			var regionLevel =  parseInt(i) + 1;
+			if (_item.length == regionLevel) return false;
+			resetRegionNode(regionLevel);
+			getRegionNode(regionParent,regionLevel);
+		});
+    });
+}
+function resetRegionNode(regionLevel){
+	var _item =$('.region-item');
+	for(var i = 0; i< _item.length; i++){
+		if (i > regionLevel) $('.region-item').eq(i).html('');
+	}
+}
+	 </script>
+    
+	
+ </body>
+</html>
