@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+ <link rel="stylesheet" type="text/css" href="/statics/css/app/appstyle.css">
+<link rel="stylesheet" type="text/css" href="/statics/css/animate.min.css">
+<link rel="stylesheet" href="./statics/css/m-commint.css">
+<script type="text/javascript" src="/statics/js/setFontSize.js"></script>
+<script type="text/javascript" src="/statics/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/statics/js/global.js"></script> 
+<title>我的订单</title>
+<style>
+body {
+    background: #f6f6f6;
+}
+#menu {
+    padding-top: 1rem;
+    background: #fff;
+}
+#menu ul {
+    justify-content: space-around;
+    display: flex;
+}
+#menu li {
+    width: 6rem;
+    height: 2.6rem;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+    font-size: 1.1rem;
+    color: #111111;
+    position: relative;
+}
+#menu li .pstyle {
+    width: 75%;
+    height: 2px;
+    background: #ff8625;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform: translateX(-50%);
+}
+#menu li.on {
+    color: #ff8625;
+}
+.clear {
+    clear: both;
+}
+#tab-con .tab_itemst {
+    width: 100vw;
+    /* height: 10rem; */
+    position: relative;
+    display: none;
+}
+#tab-con .on {
+    display: block;
+    background-color: #fff;
+}
+#tab-con .ae {
+    width: 3rem;
+    height: 3rem;
+    background: red;
+}
+.henline {
+    height: .7rem;
+    background: #f6f6f6;
+}
+.tab_itemst .tcontbox {
+    width: 100%;padding: 0 1rem;
+}
+.tab_itemst .tcontbox .tconreust{width: 100%;text-align: right;height: 3rem;line-height: 3rem;}
+.tab_itemst .tconp {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    font-size: 1.05rem;
+}
+    .tab_itemst .tconp span:nth-child(2){color: #808080;}  
+.tab_itemst .tconp .tcopic{    width: 1.3rem;
+    vertical-align: middle;
+    margin-right: .4rem;}
+    .tab_itemst .tconp .jiantou3{
+        width: .4rem;
+    vertical-align: middle;
+    margin-left: .7rem;
+    }  
+.tab_itemst .tconpmsg{width: 100%;display: flex;height: 7.2rem;border-top:1px solid #dcdcdc;border-bottom: 1px solid #dcdcdc;}
+.tab_itemst .tconpmsg .mu-left{width: 27%;
+    height: 7.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+.tab_itemst .tconpmsg .mu-left img{width: 100%;height: 6.2rem;vertical-align: middle;border-radius: .3rem;}
+.tab_itemst .tconpmsg .mu-right{width: 73%;height: 7.2rem;position: relative;padding-left: .5rem;}
+.tab_itemst .tconpmsg .mu-right p:nth-child(1){font-size: 1.05rem;margin-top: .8rem; overflow : hidden;text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;}
+.tab_itemst .tconpmsg .mu-right p:nth-child(2){font-size: 1.1rem;margin-top: .9rem;display: flex;justify-content:space-between;
+   }
+.tab_itemst .tconpmsg .mu-right p:nth-child(2) .murp{color: #f12036;
+    font-size: 1.2rem;
+    font-weight: 700;}
+.tab_itemst .tconpmsg .mu-right p:nth-child(2) .murNum{    color: #808080;
+    font-size: 1.05rem;}
+.tab_itemst .tcontbox .nth-btn {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 1rem;
+}
+.tab_itemst .tcontbox .nth-btn span {
+    width: 6.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: .3rem;
+    margin-left: 1rem;
+}
+.tab_itemst .tcontbox .nth-btn .nth-sitem {
+    border: 1px solid #ccc;
+    color: #323232;
+}
+.tab_itemst .tcontbox .nth-btn .nth-bitem {
+    border: 1px solid #f12036;
+    color: #f12036;
+}
+</style>
+</head>
+<body>
+<div class="header_box" style="z-index: 3;"> <img src="/statics/images/goback_b.png" class="left" id="props" onclick="goback()">
+  <p class="midden">我的订单</p>
+</div>
+<div class="h50"></div>
+<div id="menu">
+  <ul>
+    <li class="on">全部
+      <p class="pstyle"></p>
+    </li>
+    <li>待付款
+      <p></p>
+    </li>
+    <li>待发货
+      <p></p>
+    </li>
+    <li>已发货
+      <p></p>
+    </li>
+    <li>退款/售后
+      <p></p>
+    </li>
+    <div class="clear"></div>
+  </ul>
+  <div class="clear"></div>
+</div>
+<div class="henline"></div>
+<div id="tab-con">
+  <div class="tab_itemst on"> 
+    <!--订单1-->
+    <div class="tcontbox">
+      <p class="tconp"><span><img src="./images/shoppings.png" class="tcopic">乐享健官方商城<img src="./images/jiantou3.png" class="jiantou3"></span><span>卖家已发货</span></p>
+      <div class="tconpmsg">
+         <div class="mu-left"><img src="./images/xueyay.png" alt=""></div> 
+         <div class="mu-right">
+             <p>血糖仪G-777G 家用精准全自动 血糖测试仪器测血糖送试纸血糖仪G-777G 家用精准全自动 血糖测试仪器测血糖送试纸（电源适.....</p>
+             <p><span class="murp">￥260.00</span><span class="murNum">数量：1</span></p>
+         </div> 
+      </div>
+      <p class="tconreust">共1件商品 合计：￥270.00元(含运费￥10.00元）</p>
+      <div class="nth-btn"><span class="nth-bitem">确认收货</span><span class="nth-sitem">查看配送</span></div>
+    </div>
+    <!--订单1--> 
+
+  </div>
+  <div class="tab_itemst"> 2 </div>
+  <div class="tab_itemst"> 3 </div>
+  <div class="tab_itemst"> 4 </div>
+  <div class="tab_itemst"> 5 </div>
+</div>
+</body>
+<script>
+$(function(){
+	var $list = $("#menu").find("li");
+	var $div = $("#tab-con").children("div");
+	$list.click(function() {
+		var index = $(this).index();
+		$list.eq(index).addClass("on").siblings().removeClass("on");
+		$div.eq(index).addClass("on").siblings().removeClass("on");
+		$(this).find("p").addClass("pstyle").parent().siblings().find('p').removeClass("pstyle");;
+	})
+})
+</script>
+</html>
