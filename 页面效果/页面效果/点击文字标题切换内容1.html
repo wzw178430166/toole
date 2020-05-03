@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<style>
+*{
+	padding:0;
+	margin:0;
+}
+	#tab{
+		width:400px;
+		height:400px;
+		border:1px solid red;
+		margin:100px auto;
+	}
+	ul{
+		list-style:none;
+	}
+	#menu{
+		
+		height:50px;
+		line-height:50px;
+		
+	}
+	#menu ul{
+		width:400px;
+	}
+	#menu ul li{
+	float:left;width:99px;text-align:center;line-height:50px;height:50px;cursor:pointer;border-left:#cccccc solid 1px;color:#666;font-size:14px;background:#E0E2EB;}/*导航条里的li*/
+   #neirong{
+   	 height:350px;
+   	 border:1px solid blue;
+   	 overflow:hidden;
+   }
+  #neirong ul li{
+    height:350px;
+    padding:20px;
+  }
+  #menu li.off{background:#FFFFFF;color:#336699;font-weight:bold;} /*导航条切换的样式*/
+</style>
+</head>
+<body>
+<div id="tab">
+	<div id="menu">
+		<ul>
+			<li class="off">首页</li>
+			<li>个淀粉</li>
+			<li>好多个</li>
+			<li>额废物</li>
+		</ul>
+	</div>
+	<div id="neirong">
+		<ul>
+			<li>的说法是大</li>
+			<li style="display:none;">范德萨</li>
+			<li style="display:none;">大神</li>
+			<li style="display:none;">发十大发生的</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+var menuli=document.getElementById("menu").getElementsByTagName("li");
+var neirong=document.getElementById("neirong").getElementsByTagName("li");
+//var nums=0;
+for(var i=0;i<menuli.length;i++){
+	menuli[i].index=i;
+	menuli[i].onclick=function(){
+		for(var j=0;j<menuli.length;j++){
+			menuli[j].className="";
+			neirong[j].style.display="none";
+		}
+		menuli[this.index].className="off";
+		neirong[this.index].style.display="block";
+	}
+}
+/*
+for(var i=0;i<menuli.length;i++){
+	menuli[i].index=i;
+	menuli[i].onclick=function(){
+       nums=this.index;
+       for(var j=0;j<menuli.length;j++){
+       	menuli[i].className="";
+       }
+       menuli[nums].className="off";
+	}
+}
+*/
+</script>
+</body>
+</html>

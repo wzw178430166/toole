@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+    var innerdivs2;
+    var innerdivs22;
+    var int;
+   
+     
+    function sell(){
+     innerdivs2.scrollTop++ //整个内容的对象的滚动条顶部不停往下滚动
+     if(innerdivs2.scrollTop>=innerdivs22.offsetHeight){
+         innerdivs2.scrollTop=0;
+     }
+    } 
+    window.onload=function(){
+     innerdivs2=document.getElementById("innerdivs2"); //获取整个内容的对象
+     innerdivs2.onmouseover=function(){
+         clearInterval(int);
+     }
+      innerdivs2.onmouseout=function(){
+         int=setInterval(sell,40);
+     }
+     innerdivs22=document.getElementById("innerdivs22");
+     int=setInterval(sell,40);
+    }
+</script>
+
+<style>
+    #outdiv{
+        width:600px;
+        font-size:15px;
+    }
+    #innerdiv{
+        background-color:dodgerblue;
+        padding:10px 0px 10px 10px;
+        font-size:26px;
+        color:aliceblue;
+        
+    }
+    
+     #outdiv .innerdiv-1{
+         border:1px solid grey;    /* 注意这里加边框 因为整个div没有指定高度，撑开内容。所以要加边框就要指定高度
+                                         这里可以在#outdiv #innerdiv-1这里加，也可以在#outdiv #innerdiv-1 ul加高度*/
+           border-top:none;   
+            border-bottom:none;                                            
+     }
+       #outdiv .innerdiv-1 ul{
+     list-style:none;
+     margin: 0;
+     padding:0;
+     height:50px;  
+     
+    }
+     #outdiv .innerdiv-1 ul li{
+         float:left;
+         width:25%;
+         text-align:center;
+            height:50px;
+       line-height:50px;
+     }
+     #outdiv #innerdivs2{
+         
+         height:200px;
+         border-top:1px solid grey;
+         border-bottom:1px solid grey;
+         overflow:auto;
+         overflow:hidden;
+     }
+
+    </style>
+
+
+
+</head>
+
+
+<body>
+ <div id="outdiv">
+     <div id="innerdiv">
+         交易状态
+     </div>
+     <div class="innerdiv-1">
+     <ul>
+         <li>买家</li>
+         <li>型号</li>
+         <li>交易状态</li>
+         <li>时间</li>
+     </ul>
+     </div>
+     <div class="innerdiv-2" id="innerdivs2">
+     <div class="innerdiv-1" id="innerdivs22">
+         <ul>
+             <li>李1***</li>
+             <li>101-防锈油</li>
+             <li>正在交易</li>
+             <li>10.23</li>
+         </ul>
+         <ul>
+             <li>李2***</li>
+             <li>101-防锈油</li>
+             <li style="color:red;">交易成功</li>
+             <li>10.23</li>
+         </ul>
+         <ul>
+             <li>李3***</li>
+             <li>101-防锈油</li>
+             <li>正在交易</li>
+             <li>10.23</li>
+         </ul>
+         <ul>
+             <li>李4***</li>
+             <li>101-防锈油</li>
+             <li>正在交易</li>
+             <li>10.23</li>
+         </ul>
+     </div>
+      <div class="innerdiv-1">
+         <ul>
+             <li>李1***</li>
+             <li>101-防锈油</li>
+             <li>正在交易</li>
+             <li>10.23</li>
+         </ul>
+         <ul>
+             <li>李2***</li>
+             <li>101-防锈油</li>
+             <li style="color:red;">交易成功</li>
+             <li>10.23</li>
+         </ul>
+         <ul>
+             <li>李3***</li>
+             <li>101-防锈油</li>
+             <li>正在交易</li>
+             <li>10.23</li>
+         </ul>
+         <ul>
+             <li>李4***</li>
+             <li>101-防锈油</li>
+             <li>正在交易</li>
+             <li>10.23</li>
+         </ul>
+     </div>
+     </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+function cssrule (a,b) {
+  var a= a || 0;             //如果a存在的情况下就传a  a不存在的情况下就传0                                 就是a不传参数的时候就等于0；
+  var b= b ||0;              //如果b存在的情况下就传b  b不存在的情况下就传0                                 就是b不传参数的时候就等于0；
+  if(document.all){
+   return  document.styleSheets[a].rules[b].style 
+  }else{
+  return document.styleSheets[a].cssRules[b].style
+  }
+}

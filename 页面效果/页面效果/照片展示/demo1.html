@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery.js"></script>
+<style type="text/css">
+* {
+	margin: 0px;
+	padding: 0px;
+
+	font-size:0;
+}
+body{
+		background-color: #666;
+	}
+#wrapper {
+	
+	width: 70%;
+	margin-top: 50px;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+#wrapper #btn {
+	background-color: #009;
+	display: block;
+	height: 30px;
+	width: 200px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+}
+#wrapper .main {
+	height: 250px;
+	width: 500px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	    perspective: 700px;     /*perspective 视距-用来设置用户与元素3d空间Z平面之间的距离*/
+
+}
+#wrapper .main img{
+	width:50px;           /*注意英文拼写*/
+	height:50px;
+	float:left;
+	}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<!-- 图片区 -->
+<div class="main"></div>
+<button id="btn">按钮</button>
+</div>
+</body>
+<script type="text/javascript" src="demo2.js"></script>
+<script>
+  function counts(article){
+ article = article.trim().toUpperCase();
+ var array = article.match(/[A-z]+/g);
+ article = " "+array.join(" ")+" ";
+ var max = 0,word,num = 0,maxword="";
+ for(var i = 0; i < array.length; i++) {  
+  word = new RegExp(" "+array[i]+" ",'g');
+ num = article.match(word).length;
+ if(num>max){
+  max=num;
+  maxword = array[i];
+ }
+ }
+ console.log(maxword+" "+max);
+}
+counts("Age has reached the end of the beginning of a word. May be guilty in his seems to passing a lot of different life became the appearance of the same day;");
+</script
+</html>

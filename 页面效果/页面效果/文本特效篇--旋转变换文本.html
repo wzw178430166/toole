@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>文本特效篇--旋转变换文本</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</HEAD>
+
+<BODY bgcolor="#fef4d2" background="../images/background3.jpg" >
+<br>
+<br>
+<center>
+<font color="ffaafa">
+  <h2><font color="#C87800">文本特效篇--旋转变换文本</font></h2>
+  </font> 
+  <hr width=300>
+<br><br>
+
+<!-- 案例代码1开始 -->
+ 
+<script language=javascript>
+//<!-- [Step1]: 这里可以更改变换文本的内容 -->
+Message="旋转变换文本"
+MFirst=5;
+Text=""
+
+function RoundMessage()
+{
+    MFirst=MFirst-0.05;
+    for (I=0;I<Message.length;I++){
+        MFirst1=MFirst+0.5*I;
+        Cosine=Math.cos(MFirst1);
+        RM=document.all("L"+I);
+        RM.style.posLeft=260+100*Math.sin(MFirst1)+50;
+        RM.style.zIndeI=20*Cosine;
+        RM.style.fontSize=40+25*Cosine;
+        RM.style.color="rgb("+ (200+Cosine*80+50) + ","+ (120+Cosine*80+50) + ",0)";
+    }
+}
+Time=window.setInterval("RoundMessage()",100);
+</script>
+
+<!-- 案例代码1结束 -->
+
+
+<!-- 案例代码2开始 -->
+
+<script language=JavaScript>
+
+for (I=0;I<Message.length;I++)
+//<!-- [Step2]: 这里可以改变文本的位置 -->
+{  Text=Text + '<DIV Id=L' + I + ' STYLE="width:3;font-family: Courier New;font-weight:bold;position:absolute;top:140;left:150;z-indeI:0">' + Message.charAt(I) + '</DIV>'
+}
+document.write (Text);
+
+</script>
+
+<!-- 案例代码2结束 -->
+
+
+</center></BODY>
+
+</HTML>

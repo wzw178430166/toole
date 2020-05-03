@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>jQuery+CSS3个人资料步骤填写表单代码</title>
+
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+<section class='container'>             
+    <!-- HTML <section> 标签 <section> 标签表示文档中的一个独立部分， -->
+<!-- / Form -->
+
+<form>
+
+<!-- / Fieldset Alpha -->
+
+<fieldset class='alpha'>
+
+<legend><b>1.</b>个人信息</legend>
+
+<div class='frow'>
+
+<input class='item' placeholder='用户名' type='text'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='邮箱' type='email'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='密码' type='password'>
+
+</div>
+
+<div class='frow'>
+
+<a class='next-step' href='#'>下一步!</a>
+
+</div>
+
+</fieldset>
+
+<!-- / Fieldset Beta -->
+
+<fieldset class='beta'>
+
+<legend><b>2.</b>社交信息</legend>
+
+<div class='frow'>
+
+<input class='item' placeholder='微信' required='required' type='url'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='新浪微博' required='required' type='url'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='腾讯微博' required='required' type='url'>
+
+</div>
+
+<div class='frow'>
+
+<a class='prev-step' href='#'>上一步</a>
+
+</div>
+
+<div class='frow'>
+
+<input class='submit' type='submit' value="完成">
+
+</div>
+
+</fieldset>
+
+<!-- / Fieldset Charlie -->
+
+<fieldset class='charlie'>
+
+<legend><b>3.</b>完成</legend>
+
+<div class='frow'>
+
+<p>您的信息已经填写完整，谢谢！</p>
+ <button class='bnt'>确认</button>
+</div>
+
+</fieldset>
+
+</form>
+
+</section>
+
+<script src='js/jquery.js'></script>
+
+<script src="js/index.js"></script>
+
+</body>
+
+</html>
