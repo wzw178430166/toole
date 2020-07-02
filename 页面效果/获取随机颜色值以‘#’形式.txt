@@ -1,0 +1,14 @@
+   function getrandomColor(){
+            var arr=['a','b','c','d','e','f','0','1','2','3','4','5','6','7','8','9'];
+            var str="";
+            //var suiji=Math.floor(Math.random()*15);//在循环外面写的随机数是已经计算好了，到了下面就是重复循环一个数。所以颜色就只有几个
+            for(var i=0;i<6;i++){
+               // str+=arr[suiji];
+               str+=arr[Math.floor(Math.random()*15)];
+            }
+            return  "#"+str;
+        }
+
+
+
+所有以 #faaa12  这种格式的颜色值  都是以 a-f  0-9 这种形式的6位数组合成的。前面加个#

@@ -1,0 +1,37 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+<title>动感Loading文字</title>
+<script language="javascript">
+
+
+function aa(texts,obj){       //这里备注了就是window的全局作用域，没有就是aa的作用域
+   var i    = 0;              //封装起来了   
+   var text = texts ;
+  return setInterval(function flash(){
+    var str = text.charAt(i);//获取改变样式的当前字符
+    var strs = "<b>" + str + "</b>";//获取改变样式的当前字符
+    leftStr  = text.substr(0,i);//截取当前获取到的单个改变字符到第一个字符的内容
+    rightStr = text.substr(i+1,text.length-i);//截取获取剩下的字符串
+    obj.innerHTML = leftStr + strs + rightStr;//前面三个拼接在一起的字符串
+    i++;//当前字符的样式不断改变
+    if (i>=text.length)i=0; //循环
+    //setTimeout("flash",500);
+  }
+ ,500);
+}
+window.onload=function(){  //一开始是因为作用域的问题。
+ aa("Loading...",txt);
+ aa("文智伟加油,一定可以的！",values);
+ //alert(txt.style.fontSize)
+}
+//-->
+</script>
+</head>
+<body >
+<div id="txt" style="font-size:28px;font-family:Arial">
+</div>
+<div id="values" style="font-size:28px;font-family:Arial"> </div>
+<img src="图片/a.jpg" alt="" border="1px">
+</body>
+</html>

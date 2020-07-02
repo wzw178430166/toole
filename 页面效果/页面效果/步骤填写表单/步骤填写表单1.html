@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>jQuery+CSS3个人资料步骤填写表单代码</title>
+
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+<section class='container'>
+
+<!-- / Form -->
+
+<form>
+
+<!-- / Fieldset Alpha -->
+
+<fieldset class='alpha'>
+
+<legend><b>1.</b>个人信息</legend>
+
+<div class='frow'>
+
+<input class='item' placeholder='用户名' type='text'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='邮箱' type='email'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='密码' type='password'>
+
+</div>
+
+<div class='frow'>
+
+<a class='next-step' href='#'>下一步!</a>
+
+</div>
+
+</fieldset>
+
+<!-- / Fieldset Beta -->
+
+<fieldset class='beta'>
+
+<legend><b>2.</b>社交信息</legend>
+
+<div class='frow'>
+
+<input class='item' placeholder='微信' required='required' type='url'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='新浪微博' required='required' type='url'>
+
+</div>
+
+<div class='frow'>
+
+<input class='item' placeholder='腾讯微博' required='required' type='url'>
+
+</div>
+
+<div class='frow'>
+
+<a class='prev-step' href='#'>上一步</a>
+
+</div>
+
+<div class='frow'>
+
+<input class='submit' type='submit' value="完成">
+
+</div>
+
+</fieldset>
+
+<!-- / Fieldset Charlie -->
+
+<fieldset class='charlie'>
+
+<legend><b>3.</b>完成</legend>
+
+<div class='frow'>
+
+<p>您的信息已经填写完整，谢谢！</p>
+<button class='bnt'>确认</button>
+</div>
+
+</fieldset>
+
+</form>
+
+</section>
+
+<script src='js/jquery.js'></script>
+<script>
+    $(function(){
+       $('.alpha .next-step').click(function(){
+        //   if($('.alpha').hasClass('in')){
+        //     //  alert('a')
+        //       $('.alpha').removeClass('in');
+        //   }
+        event.preventDefault(); 
+          $('.alpha').addClass("out");  // 0 
+          if($('.beta').hasClass("out")) {        // .beta 框架2 社交信息
+        $('.beta').removeClass("out");
+      }
+          $('.beta').addClass("in");
+       });
+       $('a.prev-step').click(function(event){   //按 上一步就显示框架1 隐藏框架2  步骤如下
+      event.preventDefault(); 
+      $('.alpha').removeClass("out").addClass("in");    //class 不能起冲突
+      $('.beta').removeClass("in").addClass("out"); 
+    }); 
+    $('.submit').click(function(event){
+      event.preventDefault();
+      // Part 1
+      if($('.beta').hasClass("in")) {
+        $('.beta').removeClass("in");
+      }
+      $('.beta').addClass("out");
+      // Part 2
+      if($('.charlie').hasClass("out")) {
+        $('.charlie').removeClass("out");
+      }
+      $('.charlie').addClass("in");
+    });
+    })
+</script>
+<!-- <script src="js/index.js"></script> -->
+
+</body>
+
+</html>

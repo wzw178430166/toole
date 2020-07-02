@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+ 
+<div id="show"></div>
+    <script type="text/javascript">
+ window.onload = function() {
+ var show=document.getElementById("show");
+  setInterval(function(){
+var now = new Date();
+var hours = now.getHours();
+var minutes = now.getMinutes();
+var seconds = now.getSeconds()
+var timeValue = now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日" +((hours >= 12) ? " 下午 " : " 上午 " )
+timeValue += ((hours >12) ? hours -12 :hours)//由上到下一次执行代码，这里解释为，如果大于12就显示下午
+timeValue += ((minutes < 10) ? ":0" : ":") + minutes//这里是分钟
+timeValue += ((seconds < 10) ? ":0" : ":") + seconds//这里添加秒数
+ show.innerHTML = timeValue;
+
+},1000);
+  }
+
+ // var show=document.getElementById("show");
+ //  setInterval(function(){
+ //    var date=new Date();
+ //    var year=date.getFullYear();
+ //    var month=date.getMonth()+1;
+ //    var day=date.getDate();
+ //    var hours=date.getHours();
+ //    var minute=date.getMinutes();
+ //    var second=date.getSeconds();
+ //    var t=year+"年"+month+"月"+day+"日"+hours;
+ //                t=t+((date.getMinutes()>10)?":":"0:")+minute;
+ //        t=t+((date.getMinutes()>10)?":":"0:")+second;
+ //    show.innerHTML=t;
+ //  },1000);
+</script>
+</body>
+</html>

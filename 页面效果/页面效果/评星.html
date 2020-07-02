@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Document</title>
+<style>
+  *{
+    margin:0;
+    padding:0;
+  }
+  ul{
+   list-style:none;
+   overflow:hidden;
+    margin-left:100px;
+  }
+  ul li{
+    float:left;
+    width:27px;
+    height:27px;
+    background:url("star.gif");
+  }
+ul li.light {
+  background:url("star.gif")0px -29px;
+ }
+</style>
+</head>
+<body>
+ <ul>
+  <li ></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+ </ul>
+<p id="pist"></p>
+</body>
+<script>
+var list=document.getElementsByTagName("li");
+var num=num1=num2=0;
+var ok=1;
+function star(num){
+  num1=num || num2;
+  for(var i=0;i<list.length;i++){
+    list[i].className=i<num1?"light":"";
+  }
+}
+for(var i=0;i<list.length;i++){
+  list[i].index=i+1;
+  list[i].onmouseover=function(){
+    var aab=this.index;
+    star(aab);
+      var pist=document.getElementById("pist");
+       pist.style.marginLeft="100px";
+    if(aab==1){
+      pist.innerHTML="感觉十分不满意，评价1星";
+    }
+    if(aab==2){
+      pist.innerHTML="感觉十分不太好，评价2星";
+    }
+    if(aab==3){
+      pist.innerHTML="感觉一般，评价3星";
+    }
+    if(aab==4){
+      pist.innerHTML="感觉还好，评价4星";
+    }
+    if(aab==5){
+      pist.innerHTML="感觉非常好，评价5星";
+    }
+  }
+  list[i].onmouseout=function(){
+   star(0);
+    if(ok){
+       
+    pist.innerHTML="";
+  }
+  }
+  list[i].onclick=function(){    //点击的时候就会触发鼠标离开的事件
+                                //star(0)星星亮的就会变成0  改变参数就可以获得当前的数量，再加个变量
+    num2=this.index;   //为什么能赋值给num2而且能让num2赋值给第二个变量，                                 因为this.index是点击时候触发的，是一个马上执行的属性，所以能一系列传值            
+    ok=0;
+    if(num2==1){
+      pist.innerHTML="感觉十分不满意，评价1星";
+    }
+    if(num2==2){
+      pist.innerHTML="感觉十分不太好，评价2星";
+    }
+    if(num2==3){
+      pist.innerHTML="感觉一般，评价3星";
+    }
+    if(num2==4){
+      pist.innerHTML="感觉还好，评价4星";
+    }
+    if(num2==5){
+      pist.innerHTML="感觉非常好，评价5星";
+    }
+  }
+}
+/*
+var num=finalnum = tempnum= 0;
+var lis = document.getElementsByTagName("li");
+//num:传入点亮星星的个数
+//finalnum:最终点亮星星的个数
+//tempnum:一个中间值
+function fnShow(num) {
+ finalnum= num || tempnum;//如果传入的num为0，则finalnum取tempnum的值
+ for (var i = 0; i < lis.length; i++) {
+  lis[i].className = i < finalnum? "light" : "";//点亮星星就是加class为light的样式
+ }
+}
+for (var i = 1; i <= lis.length; i++) {
+ lis[i - 1].index = i;
+ lis[i - 1].onmouseover = function() { //鼠标经过点亮星星。
+  fnShow(this.index);//传入的值为正，就是finalnum
+ }
+ lis[i - 1].onmouseout = function() { //鼠标离开时星星变暗
+  fnShow(0);//传入值为0，finalnum为tempnum,初始为0
+ }
+ lis[i - 1].onclick = function() { //鼠标点击,同时会调用onmouseout,改变tempnum值点亮星星
+  tempnum= this.index;
+ }
+}
+*/
+/*  一样同上，只是变量有小小不同
+var num=num2=num3=0;
+var list=document.getElementsByTagName("li");
+function star(num){
+  num2=num || num3;
+ for(var i=0;i<list.length;i++){
+  list[i].className=i<num2?"light":"";
+ }
+}
+for(var i=0;i<list.length;i++){
+  list[i].index=i+1;
+  list[i].onmouseover=function(){
+    star(this.index);
+  }
+  list[i].onmouseout=function(){
+    star(0);
+  }
+  list[i].onclick=function(){
+    num3=this.index;
+  }
+}
+*/
+</script>
+
+</html>
