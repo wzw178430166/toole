@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+        content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/statics/css/appstyle.css">
+<link rel="stylesheet" href="/statics/currency/plug/framework7/css/framework7.bundle.min.css">
+<script type="text/javascript" src="/statics/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/statics/js/global.js"></script>
+<script type="text/javascript" src="/statics/js/setFontSize.js"></script>
+<script type="text/javascript" src="/statics/js/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="/statics/currency/plug/framework7/js/framework7.bundle.min.js"></script>
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/framework7/5.7.7/css/framework7.bundle.css"></script>-->
+<title>设置闹钟</title>
+<style>
+body {
+    background: #ffffff;
+}
+.headerBoxCircle p {
+    margin: 0;
+}
+.m-fun {
+    background-color: #fff;
+    width: 93%;
+    margin: 0 auto;
+}
+.m-fun ul li {
+    padding: 0 1rem 0 1rem;
+    position: relative;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    border-bottom: 1px solid #f6f6f6;
+    position: relative
+}
+.m-fun ul li .m-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+}
+.m-fun ul li.m-first {
+    height: 3.5rem;
+    line-height: 3.5rem;
+    background: #f5f5f5;
+    margin-top: 1rem;
+    border-radius: 500px;
+    border: 1px solid #e0e0e0;
+}
+.m-fun ul li.m-first .m-iteimg {
+    display: block;
+    position: absolute;
+    width: 100%;
+    border-radius: 50%;
+    float: left;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.m-fun ul li.m-first .m-iteimg .radios {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+}
+.m-fun ul li.m-first img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: .6rem .5rem 0 0;
+}
+.m-fun ul li.tconp {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    font-size: 1.05rem;
+}
+.m-fun ul li.tconp .tcopic {
+    width: 1.3rem;
+    vertical-align: middle;
+    margin-right: .4rem;
+}
+.m-fun ul li.tconp .jiantou3 {
+    width: .4rem;
+    vertical-align: middle;
+    margin-left: .7rem;
+}
+.m-fun ul li.tconpmsg {
+    width: 100%;
+    display: flex;
+    height: 8rem;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+.m-fun ul li.tconpmsg .mu-left {
+    width: 27%;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.m-fun ul li.tconpmsg .mu-left img {
+    width: 100%;
+    height: 6.2rem;
+    vertical-align: middle;
+    border-radius: .3rem;
+}
+.m-fun ul li.tconpmsg .mu-right {
+    width: 73%;
+    height: 8rem;
+    position: relative;
+    padding-left: .5rem;
+}
+.m-fun ul li.tconpmsg .mu-right p:nth-child(1) {
+    font-size: 1.05rem;
+    margin-top: .8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.m-fun ul li.tconpmsg .mu-right p:nth-child(2) {
+    font-size: 1rem;
+    margin: .3rem auto;
+    color: #808080;
+}
+.m-fun ul li.tconpmsg .mu-right p:nth-child(3) {
+    font-size: 1.1rem;
+    color: #f12036;
+    font-weight: 700;
+}
+.m-fun ul li span {
+    padding-left: .5rem;
+    font-size: 1.1rem;
+    display: inline-block;
+    line-height: 3.5rem;
+    color: #333;
+}
+.m-fun ul li .m-usemsg {
+    float: right;
+    font-size: 1.1rem;
+    color: #7b7777;
+    display: inline-block;
+    line-height: 3.5rem;
+}
+.m-fun ul li .icon-arrow-r {
+    float: right;
+    display: block;
+    width: 2rem;
+    height: 3.5rem;
+    background: url('../drug/images/icon_arrow_r.png') no-repeat 100% center;
+    background-size: 1.3rem;
+}
+.doc-ite {
+    width: 60%;
+    float: left;
+    position: relative;
+    top: 50%;
+    display: flex;
+    transform: translateY(-50%);
+}
+.m-fun .m-first .doc-oct {
+    width: 90%;
+}
+.doc-ite .docuname {
+    margin-right: .5rem;
+}
+.doc-ite p {
+    padding-left: .5rem;
+    margin-bottom: .2rem;
+}
+.pselect .m-fun ul li.m-first img {
+    border-radius: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.doc-ite p:nth-child(1) {
+    font-size: 1.15rem;
+    color: #000;
+    margin-top: .4rem;
+}
+.doc-ite p:nth-child(2) {
+    font-size: 1.05rem;
+    color: #666666;
+    margin-top: .4rem;
+}
+.pselect .m-fun ul li.m-first img {
+    margin: -.6rem .5rem 0 0;
+}
+.pselect .m-fun .iconselect {
+    width: 4.5rem;
+    height: 90%;
+    margin-top: .2rem;
+    background: #f5f5f5 url(/dev/wrist_watch/images/defoft.png) right center no-repeat;
+    float: right;
+    display: block;
+    background-size: 30%!important;
+}
+.pselect .m-fun .icochecked {
+    background: #f5f5f5 url(/dev/wrist_watch/images/xuanzes.png) right center no-repeat;
+}
+.henglis {
+    height: .4rem;
+    background: url(/dev/wrist_watch/images/oderline.png) no-repeat;
+    background-size: 100%;
+}
+.c-settlement {
+    width: 100%;
+    height: 3.8rem;
+    line-height: 3.8rem;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+}
+.c-settlement div:nth-child(1) {
+    width: 78%;
+    color: #f12036;
+    font-size: 1.1rem;
+    background: #fff;
+}
+.c-settlement .cseitem {
+    color: #fc7e18;
+    padding-left: 1.5rem;
+    font-size: 1.15rem;
+}
+.c-settlement .cesprice {
+    font-size: 1.4rem;
+}
+.c-settlement div:nth-child(2) {
+    width: 37%;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+    background: #ff5555;
+}
+.mt_bnt {
+    width: 92%;
+    height: 3.35rem;
+    line-height: 3.35rem;
+    background: #24da35;
+    border: 0;
+    outline: 0;
+    color: #ffffff;
+    z-index: 2;
+    border-radius: 500px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.11rem;
+    position: fixed;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+:root {
+ --f7-picker-height: 260px;
+ --f7-picker-inline-height: 200px;
+ --f7-picker-popover-height: 200px;
+ --f7-picker-popover-width: 280px;
+ --f7-picker-landscape-height: 200px;
+ --f7-picker-item-height: 50px;
+}
+/*
+.picker-3d .picker-item {
+    transform-origin: center center -180px;
+}
+*/
+.test {
+    font-size: 50px;
+}
+.test2 {
+    font-size: 25px;
+}
+.picker-item span {
+    padding: 0!important;
+    font-size: 2.23rem!important;
+    width: 6rem!important;
+    text-align: center!important;
+    display: inline-block!important;
+    color: #ccc7d7;
+}
+.picker-item.picker-item-selected span {
+    color: #a592f6!important;
+    font-size: 3.73rem!important;
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+}
+.picker-3d .picker-item {
+    height: 4rem!important;
+    line-height: 3rem!important;
+    transform-origin: center center -180px;
+}
+.picker-center-highlight::after {
+    display: none!important;
+}
+.picker-center-highlight::before {
+    display: none!important;
+}
+.block-strong::after {
+    display: none!important;
+}
+.block-strong::before {
+    display: none!important;
+}
+.picker-column.picker-column-divider {
+    display: flex;
+    color: #a997fa!important;
+    align-self: center;
+    margin-top: -0.8rem!important;
+}
+.margin-bottom {
+    margin-bottom: 0!important;
+}
+.m-fun ul li.mtp_first {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border-bottom: 0;
+}
+.m-fun ul li.mtp_first p {
+    color: #0D0000;
+    font-weight: 500;
+    font-size: 1.113rem;
+    margin: 0;
+}
+    .m-fun ul li.m-wid{    display: flex;
+    border-bottom: 0;padding: 0;
+    justify-content: space-around;background: #ffffff;color: #2f2f2f;
+    text-align: center;}
+    .m-fun ul li.m-wid div{background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: .33rem;
+    text-align: center;
+    width: 12%;}
+    .m-fun ul li.m-wid .J_select{width: 100%;
+    position: relative;z-index: 10;}
+    .colors{color: #000;font-weight: 700;background: #666;font-size: 1.12rem;}
+/*
+    .pselect .m-fun .icochecked {
+    background: #f5f5f5 url(/dev/wrist_watch/images/sure.png) right center no-repeat;
+    }
+*/
+        .pselect .m-fun .iconjingy {
+    background: #f5f5f5 url(/dev/wrist_watch/images/jingyong.png) right center no-repeat;
+    }
+    .center_ritht {
+    position: absolute;
+    right: 1.5rem;
+    width: 2.3rem;
+    height: 2rem;
+    line-height: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+</style>
+</head>
+
+<body>
+<div class="headerBoxCircle"> <img src="/statics/images/goback_b.png" onClick="goback()" class="left">
+  <p class="midden">设置闹钟</p>
+  <div class="center_ritht" onclick="goo('/dev/wrist_watch')"> 关闭</div>
+</div>
+<div class="h50"></div>
+<div class="block block-strong no-padding no-margin margin-bottom">
+  <div id="demo-picker-date-container"></div>
+</div>
+<div class="pselect">
+  <form action="#" method="post">
+    <div class="m-fun">
+      <ul id="mtp">
+        <li class="mtp_first">
+          <p>重复</p>
+        </li>
+        <li class="m-first"> <span class="m-iteimg">
+          <input type="radio" name="num1" class="radios" value="1">
+          </span>
+          <div class="doc-ite">
+            <p>一次</p>
+          </div>
+          <i class="iconselect"></i> </li>
+        <li class="m-first"> <span class="m-iteimg">
+          <input type="radio" name="num1" class="radios" value="2">
+          </span>
+          <div class="doc-ite">
+            <p>每天</p>
+          </div>
+          <i class="iconselect"></i> </li>
+      </ul>
+    </div>
+    <div class="m-fun">
+      <ul id="mtp">
+        <li class="mtp_first" style="margin: 1rem 0;height: auto;">
+          <p>自定义</p>
+        </li>
+        <li class="m-wid">
+              <div class="m-week-item">周一 <input type="checkbox" name="praise[]" class="J_select" value="Monday"/></div>
+              <div class="m-week-item">周二 <input type="checkbox" name="praise[]" class="J_select" value="Tuesday"/></div>
+              <div class="m-week-item">周三 <input type="checkbox" name="praise[]" class="J_select" value="Wednesday"/></div>
+              <div class="m-week-item">周四 <input type="checkbox" name="praise[]" class="J_select" value="Thursday"/></div>
+              <div class="m-week-item">周五 <input type="checkbox" name="praise[]" class="J_select" value="Friday"/></div>
+              <div class="m-week-item">周六 <input type="checkbox" name="praise[]" class="J_select" value="Saturday"/></div>
+              <div class="m-week-item">周日 <input type="checkbox" name="praise[]" class="J_select" value="Sunday"/></div>
+          </li>
+      </ul>
+    </div>
+    <input type="submit" class="mt_bnt" value="保存设置">
+  </form>
+</div>
+</body>
+</html>
+<script>
+ var _switch = false;
+$(function(){
+      $('#mtp').children('li').click(function(){
+          $(this).find('.iconselect').addClass('icochecked').parents().siblings().find('i').removeClass('icochecked');
+      })
+var item1 = $('.m-week-item');
+    item1.each(function(i){
+        $(item1[i]).on('click',function(){
+         if($(this).hasClass('colors')){
+            $(this).removeClass('colors');
+             $(this).find('input').prop('checked',false);
+         }else{
+            $(this).addClass('colors'); 
+             $(this).find('input').prop('checked',true);
+         }
+            if (0<$('.m-week-item.colors').length) {
+                $('.m-fun ul li.m-first').removeClass('icochecked');
+                $('.pselect .m-fun .iconselect').addClass('iconjingy');
+            } else {
+                $('.m-fun ul li.m-first').removeClass('icochecked');
+                $('.pselect .m-fun .iconselect').removeClass('iconjingy');
+            }
+        });
+     });
+    
+    var app = new Framework7();
+    var today = new Date();
+    var pickerInline = app.picker.create({
+      containerEl: '#demo-picker-date-container',
+      //inputEl: '#demo-picker-date',
+      toolbar: false,
+      rotateEffect: true,
+      value: [
+        today.getMonth(),
+        today.getDate(),
+        today.getFullYear(),
+        //today.getHours(),
+        today.getHours() < 10 ? '0' + today.getHours() : today.getHours(),
+        today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes()
+      ],
+      formatValue: function (values, displayValues) {
+        //return displayValues[0] + ' ' + values[1] + ', ' + values[2] + ' ' + values[3] + ':' + values[4];
+        return values[3] + ':' + values[4];
+      },
+      cols: [
+        // Months
+        /*{
+          values: ('0 1 2 3 4 5 6 7 8 9 10 11').split(' '),
+          displayValues: ('January February March April May June July August September October November December').split(' '),
+          textAlign: 'left'
+        },
+        // Days
+        {
+          values: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+        },
+        // Years
+        {
+          values: (function () {
+            var arr = [];
+            for (var i = 1950; i <= 2030; i++) { arr.push(i); }
+              return arr;
+          })(),
+        },
+        // Space divider
+        {
+          divider: true,
+          content: '&nbsp;&nbsp;'
+        },*/
+        // Hours
+        {
+          values: (function () {
+            var arr = [];
+            for (var i = 0; i <= 23; i++) { arr.push(i); }
+              return arr;
+          })(),
+          textAlign: 'center',
+          cssClass: 'test',
+        },
+        // Divider
+        {
+          divider: true,
+          content: ':',
+          textAlign: 'center',
+          cssClass: 'test2',
+        },
+        // Minutes
+        {
+          values: (function () {
+            var arr = [];
+            for (var i = 0; i <= 59; i++) { arr.push(i < 10 ?  i : i); }
+              return arr;
+          })(),
+          textAlign: 'center',
+          cssClass: 'test',
+        }
+      ],
+      on: {
+        change: function (picker, values, displayValues) {
+            //console.log(picker);
+            //console.log(values);
+            console.log(displayValues);
+          /*var daysInMonth = new Date(picker.value[2], picker.value[0]*1 + 1, 0).getDate();
+          if (values[1] > daysInMonth) {
+            picker.cols[1].setValue(daysInMonth);
+          }*/
+        },
+      }
+    });
+})
+     function isStart(text){
+        $('.m-fun ul li.m-first').removeClass('icochecked');
+        $('.pselect .m-fun .iconselect').addClass('iconjingy');
+        if (_switch == true) {
+          text.removeClass('colors');
+          text.children('input').prop('checked',false);
+            _switch = false;
+        } else {
+          text.addClass('colors');
+          text.children('input').prop('checked',true);
+            _switch = true;
+        };    
+    };
+</script>
