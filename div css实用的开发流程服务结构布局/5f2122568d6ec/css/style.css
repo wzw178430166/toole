@@ -1,0 +1,314 @@
+/* 公共样式表css */
+html,body {
+    color: #333;
+    margin: 0;
+    height: 100%;
+    font-family: "Myriad Set Pro","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    border: 0;
+}
+
+body {
+    background: #fff;
+    color: #666;
+}
+
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #08acee;
+}
+
+button {
+    outline: 0;
+}
+
+img {
+    border: 0;
+}
+
+button,input,optgroup,select,textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #666;
+}
+
+a:hover {
+    color: #eee;
+}
+
+.clearfix::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+}
+
+/* 必要布局样式css */
+.process-content {
+    background: #f5f5f5;
+    padding: 80px 0;
+}
+
+.process-group {
+    width: 1180px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.process-title {
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 1.17em;
+}
+
+.process-title em {
+    display: block;
+    margin-bottom: 14px;
+    font-style: normal;
+    font-size: 30px;
+}
+
+.process-title span {
+    font-size: 16px;
+    opacity: .6;
+}
+
+.process-container {
+    width: 1180px;
+    height: 340px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+}
+
+.process-item {
+    width: 204px;
+    height: 340px;
+    float: left;
+}
+
+.process-arrow {
+    width: 30px;
+    height: 100%;
+    float: left;
+    background: url(../images/icon-arrow.svg) no-repeat center;
+}
+
+.process-item-title {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    background: #42424e;
+    line-height: 40px;
+}
+
+.process-item ul {
+    color: #333;
+    font-size: 14px;
+    height: 260px;
+    padding: 20px;
+    background: #fafafa;
+}
+
+.process-item ul li {
+    line-height: 34px;
+}
+
+.process-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.process-item ul li a {
+    color: currentColor;
+    text-decoration: none;
+    display: block;
+}
+
+.process-item ul li a:hover {
+    color: #08acee;
+}
+
+.icon-wlw {
+    background: url(../images/icon-item001.svg) no-repeat center;
+}
+
+.icon-yun {
+    background: url(../images/icon-item002.svg) no-repeat center;
+}
+
+.icon-ccs {
+    background: url(../images/icon-item003.svg) no-repeat center;
+}
+
+.icon-yds {
+    background: url(../images/icon-item004.svg) no-repeat center;
+}
+
+.icon-hlw {
+    background: url(../images/icon-item005.svg) no-repeat center;
+}
+
+.icon-bdr {
+    background: url(../images/icon-item006.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-wjr {
+    background: url(../images/icon-item007.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-bdr {
+    background: url(../images/icon-item006-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-wjr {
+    background: url(../images/icon-item007-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-dxc {
+    background: url(../images/icon-item008.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-dxc {
+    background: url(../images/icon-item008-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-bdx {
+    background: url(../images/icon-item009.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-bdx {
+    background: url(../images/icon-item009-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-gxx {
+    background: url(../images/icon-item010.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-gxx {
+    background: url(../images/icon-item010-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-jdh {
+    background: url(../images/icon-item011.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-jdh {
+    background: url(../images/icon-item011-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-ycj {
+    background: url(../images/icon-item012.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-bdm {
+    background: url(../images/icon-item013.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-bdm {
+    background: url(../images/icon-item013-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-bdj {
+    background: url(../images/icon-item014.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-bdj {
+    background: url(../images/icon-item014-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-bds {
+    background: url(../images/icon-item015.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-bds {
+    background: url(../images/icon-item015-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-bde {
+    background: url(../images/icon-item016.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-bde {
+    background: url(../images/icon-item016-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-sdx {
+    background: url(../images/icon-item017.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-sdx {
+    background: url(../images/icon-item017-1.svg) no-repeat center;
+    background-size: cover;
+}
+
+.icon-bdp {
+    background: url(../images/icon-item018.svg) no-repeat center;
+    background-size: cover;
+}
+
+.process-item ul li a:hover .icon-bdp {
+    background: url(../images/icon-item018-1.svg) no-repeat center;
+    background-size: cover;
+}
