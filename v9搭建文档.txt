@@ -1,0 +1,40 @@
+1.  安装wamp  
+ 
+2. www目录 放本地项目代码文件
+
+3. 在 阿帕奇  apache   的  httpd-bhosts.conf   复制以下代码修改   虚拟域名是 www.guangwsw.com
+
+<VirtualHost *:80>
+    ServerAdmin 473977105@qq.com
+    DocumentRoot "C:/wamp64/www/guangwsw" 
+    ServerName www.guangwsw.com  
+ServerAlias www.guangwsw.com
+    ErrorLog "logs/www.njphp.cn-errlo.log"
+    CustomLog "logs/www.njphp.cn-access.log" common
+    <directory "C:/wamp64/www/guangwsw">
+        Options FollowSymLinks
+        AllowOverride all
+        order Deny,Allow
+        Deny from all
+        Allow from all
+    </directory>
+</VirtualHost>
+
+
+4. 本地修改文件  C:\Windows\System32\drivers\etc    
+
+   最后一行加这句  127.0.0.1 www.guangwsw.com  
+
+
+5. 访问链接：http://www.guangwsw.com/
+
+
+6.  修改配置文件：   /caches/configs/database.php  
+
+
+7. 代码错误  /drcms/model 里面的   mysql.class.php   model.class.php   从医家讯复制这两份文件覆盖
+
+8.  修改打开数据库     http://localhost/phpmyadmin/     账号： root  密码 ：  空
+
+9.    创建数据库   格式：  utf8_general_ci       
+
