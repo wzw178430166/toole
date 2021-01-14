@@ -10,7 +10,7 @@
 
  5.$ git commit -m "ddd"
 
- 6.$ git push  ......github代码库地址/origin
+ 6.$ git push  ......github代码库地址/origin   git push origin
 
      node_modules   禁止上传******
  7. 进入目录 git bash here  设置  vim .gitignore  
@@ -124,3 +124,6 @@ npm install && npm start
    脚手架创建：
      脚手架3.0   vue create myapp
     脚手架2.0    vue init webpack my-project
+
+
+

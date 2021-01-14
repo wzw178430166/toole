@@ -36,5 +36,11 @@ ServerAlias www.guangwsw.com
 
 8.  修改打开数据库     http://localhost/phpmyadmin/     账号： root  密码 ：  空
 
-9.    创建数据库   格式：  utf8_general_ci       
+9.    创建数据库   格式：  utf8_general_ci 
+
+10.  database.php    改： tablepre   ： 数据库前缀名字        
+
+11.   system.php    改   //附件相关配置    upload_url：  替换成 自己绑定的域名
+
+12.   验证码错误：  system.php     session_storage  ：   mysql 改为  files
 
