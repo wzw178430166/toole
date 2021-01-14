@@ -3,7 +3,7 @@
     $('#hearder_boxs').kxbdSuperMarquee({direction: 'up',distance:36,time:6,duration:40,scrollDelay:20,isEqual:true,loop: 0});
 });*/
 
-//全局检测数据类型的方法
+//全局检测数据类型的方法///
 function getType(obj){
   let type  = typeof obj;
   if (type !== "object") {    // 先进行typeof判断，如果是基础数据类型，直接返回
