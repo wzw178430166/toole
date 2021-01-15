@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>模拟心电图</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <style>
+    html,body{
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="canvas">
+  <canvas id="can">Canvas画板</canvas>
+</div>
+
+<script>
+  var can = document.getElementById('can'),
+    pan,
+    index = 0,
+    flag = true,
+    wid = document.body.clientWidth,
+    hei = 100,
+    x = 0,
+    y = hei/2;
+  start();
+  function start(){
+    can.height = hei;
+    can.width = wid;
+    pan = can.getContext("2d");//获取2D图像API接口
+    pan.strokeStyle = "#FF0000";//设置画笔颜色
+    pan.lineJoin = "round";//设置画笔轨迹基于圆点拼接
+    pan.lineWidth = 1;//设置画笔粗细
+    pan.beginPath();
+    pan.moveTo(x,y);
+    index = setInterval(move,1);
+  };
+  function move(){
+    x++;
+    if(x < 100){
+
+    }else{
+      if(x >= wid - 100){
+
+      }else{
+        var z = Math.random()*50;
+        if(y <= z){
+          flag = true
+        }
+        if((hei - y) <= z){
+          flag = false
+        }
+        if(flag){
+          y+=5
+        }else{
+          y-=5
+        }
+      }
+    }
+    if(x == wid){
+      pan.closePath();
+      clearInterval(index);
+      index = 0;
+      x = 0;
+      y = hei/2;
+      flag = true;
+      start();
+    }
+    pan.lineTo(x,y);
+    pan.stroke();
+  }
+
+ /* */
+
+</script>
+</body>
+</html>

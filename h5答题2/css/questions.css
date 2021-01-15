@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+*{ padding:0px; margin:0px;}
+ul,li{ list-style:none;}
+a{ text-decoration:none;}
+a:hover{ text-decoration:none; cursor:pointer;}
+body{ line-height:1.5em;}
+/*question*/
+.ques{ width:300px; margin:0px auto; background:#BFFFFF; padding:10px; height:150px; overflow:hidden;}
+.ques p{ font-weight:bold;}
+.ques .ops{ padding:15px;}
+.nextQues{ background:#9E9E9E; border:#666666; color:#333333; display:block; padding:3px; text-align:center; font-weight:bold; width:310px; margin:0px auto; }
