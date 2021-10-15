@@ -242,3 +242,29 @@ function showTop  () {
 　　console.log('滚动条位置：' + scrollTop);
 }
 window.onscroll = throttle(showTop,1000) 
+
+
+
+/***************************** 相同数据 相同元素 删除  除了第一个******************************/
+
+     var objs=$('#contentsw .box_m');
+            console.log(objs);
+            for(var i=0;i<objs.length;i++){
+                checksublist();
+            }
+
+function checksublist() {
+    var idarray = new Array();
+    $("#contentsw .box_m").each(function(){
+        var wuziid = $(this).attr("data-id");
+        if (wuziid != null && wuziid != ""){
+            var index = $.inArray(wuziid,idarray);
+            if(index >= 0){
+                $(this).remove();
+                return false;
+            }else {
+                idarray.push(wuziid);
+            }
+        }
+    });
+}
