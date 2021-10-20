@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>臭美轮播图</title>
+<!--Swiper3.0.4-->
+<meta name="viewport" content="initial-scale=1">
+<link rel="stylesheet" href="https://www.jq22.com/demo/choumei201712252216/css/swiper.min.css">
+<script src="https://www.jq22.com/demo/choumei201712252216/js/swiper.min.js"></script>
+
+<style>
+@charset "utf-8";
+*{margin:0;padding:0}
+html{height:100%}
+body{height:100%;background:url(./images/shouye_nvsheng_bg.png);
+background-size:100% 100%};
+#header img{width:100%}.swiper-container{width:100%;-webkit-perspective:1200px;-moz-perspective:1200px;-ms-perspective:1200px;perspective:1200px}.swiper-wrapper{margin-top:10px}.swiper-slide{width:80%;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}.swiper-slide .main-img{width:80%;margin:0 auto;display:block}#pagination{position:absolute;bottom:100px;width:100%}#pagination .swiper-pagination-bullet{width:9.5%;float:left;margin:0 0 0 6.15%;background:0;opacity:1}.swiper-pagination-bullet i{background:#41203f;width:24px;height:24px;line-height:24px;font-size:12px;border-radius:50px;display:block;font-style:normal;text-align:center;margin:0 auto;color:#f5b55c}.swiper-pagination-bullet-active i{-webkit-transform:scale(1.5);background:url(https://www.jq22.com/demo/choumei201712252216/images/shouye_nvsheng_huangseb.png) no-repeat center 50%;background-size:auto 100%;color:#815d4b}@media screen and (min-height:481px){.swiper-wrapper{margin-top:20px}#pagination{bottom:110px}}@media screen and (min-height:569px){.swiper-wrapper{margin-top:40px}#pagination{bottom:120px}.swiper-pagination-bullet i{width:30px;height:30px;line-height:30px;font-size:15px}}#footer{position:absolute;bottom:0}#footer img{width:100%;display:block}
+
+  </style>
+</head>
+<body>
+<div class="swiper-container" >
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="/m2/images/my_p_banner.jpg" class="main-img"></div>
+    <div class="swiper-slide"><img src="/m2/images/my_p_banner2.jpg" class="main-img"></div>
+    <div class="swiper-slide"><img src="/m2/images/my_p_banner.jpg" class="main-img"></div>
+    <div class="swiper-slide"><img src="/m2/images/my_p_banner.jpg" class="main-img"></div>
+    <div class="swiper-slide"><img src="/m2/images/my_p_banner2.jpg" class="main-img"></div>
+    <div class="swiper-slide"><img src="/m2/images/my_p_banner.jpg" class="main-img"></div>
+  </div>
+</div>
+ <div class="swiper-pagination" id="pagination"></div>
+
+
+<script>
+ var mySwiper = new Swiper(".swiper-container", {
+	slidesPerView: "auto",
+	centeredSlides: !0,
+	watchSlidesProgress: !0,
+	pagination: ".swiper-pagination",
+	paginationClickable: !0,
+	paginationBulletRender: function(a, b) {
+		switch (a) {
+		case 0:
+			name = "1";
+			break;
+		case 1:
+			name = "2";
+			break;
+		case 2:
+			name = "3";
+			break;
+		case 3:
+			name = "4";
+			break;
+		case 4:
+			name = "5";
+			break;
+		case 5:
+			name = "6";
+			break;
+		default:
+			name = ""
+		}
+		return '<span class="' + b + '"><i>' + name + "</i></span>"
+	},
+	onProgress: function(a) {
+		var b, c, d;
+		for (b = 0; b < a.slides.length; b++) c = a.slides[b],
+		d = c.progress,
+		scale = 1 - Math.min(Math.abs(.2 * d), 1),
+		es = c.style,
+		es.opacity = 1 - Math.min(Math.abs(d / 2), 1),
+		es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = "translate3d(0px,0," + -Math.abs(150 * d) + "px)"
+	},
+	onSetTransition: function(a, b) {
+		for (var c = 0; c < a.slides.length; c++) es = a.slides[c].style,
+		es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = b + "ms"
+	}
+});
+</script>
+</body>
+</html>
